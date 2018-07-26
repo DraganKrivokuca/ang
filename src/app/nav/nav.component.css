@@ -1,0 +1,20 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+ p {
+   margin-left: 15px;
+ }
+
+ #account {
+  background-color: #283373;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+ }

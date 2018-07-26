@@ -1,0 +1,28 @@
+<!-- <div class="mat-elevation-z8 data-table">
+  <table class="table-center" mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+    <ng-container matColumnDef="name">
+      <th class="head" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td class="cell" mat-cell *matCellDef="let user">{{user.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th class="head" mat-header-cell *matHeaderCellDef mat-sort-header>E-mail</th>
+      <td class="cell" mat-cell *matCellDef="let user">{{user.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th class="head" mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+      <td class="cell" mat-cell *matCellDef="let user">{{user.phone}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="company">
+      <th class="head" mat-header-cell *matHeaderCellDef mat-sort-header>Company</th>
+      <td class="cell" mat-cell *matCellDef="let user">{{user.company.name}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table> -->
+
+  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
