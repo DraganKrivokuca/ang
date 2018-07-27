@@ -3,19 +3,29 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  tokenName: {'username': 'test', 'token': 'fake-jwt-token-test'};
-  constructor(private http: HttpClient) { }
+  token = localStorage.getItem('currentUser');
+  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) { }
+
+  public isAuthenticated(): boolean {
+    if (this.token !== null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   login(username: string, password: string) {
     return this.http.post<any>('/api/authenticate', { username: username, password: password })
       .map(user => {
         if (user && user.token) {
-          localStorage.setItem('currentUser', JSON.stringify({ username, token: user.token }));
+          localStorage.setItem('currentUser', user.token);
+          localStorage.setItem('role', user.role);
         }
-
         return user;
       });
   }
@@ -30,5 +40,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('role');
+
   }
 }

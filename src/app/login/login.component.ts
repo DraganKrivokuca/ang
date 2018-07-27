@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       .first()
       .subscribe(
         data => {
-          this.router.navigate(['table']);
+          this.router.navigate(['data']);
         },
         error => {
           this.error = error;
