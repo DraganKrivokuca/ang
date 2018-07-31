@@ -9,8 +9,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let testUser = { id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' };
-    let adminUser = { id: 2, username: 'admin', password: 'admin', firstName: 'ADD', lastName: 'Min' };
+    let testUser = { id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User', role: 'test' };
+    let adminUser = { id: 2, username: 'admin', password: 'admin', firstName: 'ADD', lastName: 'Min', role: 'admin' };
 
 
     return of(null).pipe(mergeMap(() => {
@@ -20,9 +20,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // tslint:disable-next-line:max-line-length
         if (request.body.username === testUser.username || request.body.username === adminUser.username && request.body.password === testUser.password || request.body.password === adminUser.password) {
           if (request.body.username === testUser.username && request.body.password === testUser.password) {
-            return of(new HttpResponse({ status: 200, body: { token: 'fake-jwt-token-test' } }));
+            // tslint:disable-next-line:max-line-length
+            return of(new HttpResponse({ status: 200, body: { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiVGVzdCIsInJvbGUiOiJUZXN0In0.jreeUGY6FlTfW7r0vUb6qIXhIEtpk2hXy74zenE8s0Y', role: 'Test' } }));
+
           } else {
-            return of(new HttpResponse({ status: 200, body: { token: 'fake-jwt-token-admin' } }));
+            // tslint:disable-next-line:max-line-length
+            return of(new HttpResponse({ status: 200, body: { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiQWRtaW4iLCJyb2xlIjoiQWRtaW4ifQ.NZK-zbodjGs9WUQKY-7gSJ3KI2HkwAp8ys5mIzaSCAY', role: 'Admin' } }));
           }
         } else {
           return throwError('Username or password is incorrect' );

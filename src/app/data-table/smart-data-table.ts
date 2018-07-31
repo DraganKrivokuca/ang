@@ -1,113 +1,77 @@
 export let settings = {
+  delete: {
+    confirmDelete: true,
+  },
+  add: {
+    confirmCreate: true,
+  },
+  edit: {
+    confirmSave: true,
+  },
   columns: {
-      id: {
+    id: {
       title: 'ID',
-      filter: false,
-      },
-      name: {
+    },
+    name: {
       title: 'Full Name',
-      filter: false,
-      },
-      username: {
+    },
+    username: {
       title: 'User Name',
-      filter: false,
-      },
-      email: {
+    },
+    email: {
       title: 'Email',
-      filter: false,
-      },
+    },
   },
 };
 
 export let data = [
   {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
-  },
-  {
-      id: 2,
-      name: 'Ervin Howell',
-      username: 'Antonette',
-      email: 'Shanna@melissa.tv',
-  },
-  {
-      id: 3,
-      name: 'Clementine Bauch',
-      username: 'Samantha',
-      email: 'Nathan@yesenia.net',
-  },
-  {
-      id: 4,
-      name: 'Patricia Lebsack',
-      username: 'Karianne',
-      email: 'Julianne.OConner@kory.org',
-  },
-  {
-      id: 5,
-      name: 'Chelsey Dietrich',
-      username: 'Kamren',
-      email: 'Lucio_Hettinger@annie.ca',
-  },
-  {
-    id: 1,
-    name: 'Leanne Graham',
-    username: 'Bret',
-    email: 'Sincere@april.biz',
-},
-{
-    id: 2,
-    name: 'Ervin Howell',
-    username: 'Antonette',
-    email: 'Shanna@melissa.tv',
-},
-{
-    id: 3,
-    name: 'Clementine Bauch',
-    username: 'Samantha',
-    email: 'Nathan@yesenia.net',
-},
-{
     id: 4,
     name: 'Patricia Lebsack',
-    username: 'Karianne',
     email: 'Julianne.OConner@kory.org',
-},
-{
+    passed: 'Yes',
+  },
+  {
     id: 5,
     name: 'Chelsey Dietrich',
-    username: 'Kamren',
     email: 'Lucio_Hettinger@annie.ca',
-},
-{
-  id: 1,
-  name: 'Leanne Graham',
-  username: 'Bret',
-  email: 'Sincere@april.biz',
-},
-{
-  id: 2,
-  name: 'Ervin Howell',
-  username: 'Antonette',
-  email: 'Shanna@melissa.tv',
-},
-{
-  id: 3,
-  name: 'Clementine Bauch',
-  username: 'Samantha',
-  email: 'Nathan@yesenia.net',
-},
-{
-  id: 4,
-  name: 'Patricia Lebsack',
-  username: 'Karianne',
-  email: 'Julianne.OConner@kory.org',
-},
-{
-  id: 5,
-  name: 'Chelsey Dietrich',
-  username: 'Kamren',
-  email: 'Lucio_Hettinger@annie.ca',
-}
+    passed: 'No',
+  },
+  {
+    id: 6,
+    name: 'Mrs. Dennis Schulist',
+    email: 'Karley_Dach@jasper.info',
+    passed: 'Yes',
+  },
+  {
+    id: 7,
+    name: 'Kurtis Weissnat',
+    email: 'Telly.Hoeger@billy.biz',
+    passed: 'No',
+  },
+  {
+    id: 8,
+    name: 'Nicholas Runolfsdottir V',
+    email: 'Sherwood@rosamond.me',
+    passed: 'Yes',
+  },
+  {
+    id: 9,
+    name: 'Glenna Reichert',
+    email: 'Chaim_McDermott@dana.io',
+    passed: 'No',
+  },
+  {
+    id: 10,
+    name: 'Clementina DuBuque',
+    email: 'Rey.Padberg@karina.biz',
+    passed: 'No',
+  },
+  {
+    id: 11,
+    name: 'Nicholas DuBuque',
+    email: 'Rey.Padberg@rosamond.biz',
+    passed: 'Yes',
+  },
 ];
+export let newData = [];

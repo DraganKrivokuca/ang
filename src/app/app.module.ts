@@ -24,6 +24,14 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { JwtInterceptor } from './_helpers/index';
+import { JwtHelperService as _JwtHelperService } from '@auth0/angular-jwt';
+import { RoleGuardService } from './auth';
+export const JwtHelperService  = {
+  provide: _JwtHelperService,
+  useFactory: () => {
+    return new _JwtHelperService();
+  }
+ };
 
 @NgModule({
   declarations: [
@@ -36,6 +44,7 @@ import { JwtInterceptor } from './_helpers/index';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     CustomMaterialModule,
     BrowserAnimationsModule,
@@ -43,14 +52,15 @@ import { JwtInterceptor } from './_helpers/index';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    HttpClientModule,
     ReactiveFormsModule,
     Ng2SmartTableModule
   ],
   providers: [
     AuthService,
+    RoleGuardService,
     AuthGuard,
     UserService,
+    JwtHelperService,
     {
       provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,
