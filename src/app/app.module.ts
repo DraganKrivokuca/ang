@@ -33,6 +33,13 @@ export const JwtHelperService  = {
   }
  };
 
+export const JwtHelperService  = {
+  provide: _JwtHelperService,
+  useFactory: () => {
+    return new _JwtHelperService();
+  }
+ };
+
 @NgModule({
   declarations: [
     AppComponent,
