@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'table', component: TableComponent, canActivate: [AuthGuard, RoleGuardService], data: {
     expectedRole: 'Test'
   } },
-  { path: '', component: DataComponent, canActivate: [AuthGuard]  },
+  { path: '', component: DataComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

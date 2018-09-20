@@ -26,12 +26,14 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { JwtInterceptor } from './_helpers/index';
 import { JwtHelperService as _JwtHelperService } from '@auth0/angular-jwt';
 import { RoleGuardService } from './auth';
-export const JwtHelperService  = {
-  provide: _JwtHelperService,
-  useFactory: () => {
-    return new _JwtHelperService();
-  }
- };
+import { TableService } from './data-table/table.service';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { DataService } from './data/data.service';
+import { AddDataComponent } from './data/add-data/add-data.component';
+
 
 export const JwtHelperService  = {
   provide: _JwtHelperService,
@@ -48,6 +50,7 @@ export const JwtHelperService  = {
     DataComponent,
     LoginComponent,
     DataTableComponent,
+    AddDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,9 +63,14 @@ export const JwtHelperService  = {
     MatPaginatorModule,
     MatSortModule,
     ReactiveFormsModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    AngularFireModule.initializeApp(environment.firebase, 'ang-app'),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [
+    TableService,
+    DataService,
     AuthService,
     RoleGuardService,
     AuthGuard,

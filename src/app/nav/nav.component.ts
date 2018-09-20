@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
   role: string;
   users: User[] = [];
   hideElement: boolean;
-  constructor(private userService: UserService, public jwtHelper: JwtHelperService) { }
+  constructor(private userService: UserService) { }
 
  isAuthenticated(): boolean {
     const token = localStorage.getItem('currentUser');

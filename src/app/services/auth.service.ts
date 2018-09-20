@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
 
   token = localStorage.getItem('currentUser');
-  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) { }
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
     return this.http.post<any>('/api/authenticate', { username: username, password: password })
